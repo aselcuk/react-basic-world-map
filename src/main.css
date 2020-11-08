@@ -1,0 +1,61 @@
+.triangle {
+    position: absolute;
+    padding: 0 6px;
+    padding-bottom: 3px;
+    box-sizing: border-box;
+    background: #fff;
+    border: 1px solid #fafafa;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(133,133,133,0.5);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(133,133,133,0.5);
+    box-shadow: 0px 0px 5px 0px rgba(133,133,133,0.5);
+  }
+
+.triangle::after{
+    z-index: -10;
+    content: "";
+    position: absolute;
+    top: 85%;
+    left: 100%;
+    box-sizing: border-box;
+    
+    border: 5px solid #fff;
+    border-color: transparent transparent #fff #fff;
+    
+    transform-origin: 0 0;
+    transform: rotate(225deg);
+    
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(133,133,133,0.5);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(133,133,133,0.5);
+    box-shadow: 0px 0px 5px 0px rgba(133,133,133,0.5);
+}
+
+.triangle::before{
+    z-index: 10;
+    content: "";
+    position: absolute;
+    top: 85%;
+    left: 100%;
+    box-sizing: border-box;
+    
+    border: 5px solid black;
+    border-color: transparent transparent #fff #fff;
+    
+    transform-origin: 0 0;
+    transform: rotate(225deg);
+}
+
+.location_text{
+    font-size: 12px;
+    color: rgb(71, 71, 71);
+}
+
+.world_map_container {
+    margin: 0 auto;
+    position: relative;
+}
+  
+@media screen and (min-width: 1024px) {
+    .world_map_container {
+        max-width: 960px;
+    }
+}
