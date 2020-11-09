@@ -1,6 +1,6 @@
 # React Basic World Map
 
-Includes basic world map and continents.
+Includes basic svg world map and continents.
 
 ## Demo
 
@@ -49,15 +49,13 @@ const continents = [
 ```
 
 ## Props
-```react
-onClickMapContinent
 
-primaryColor
-
-secondaryColor
-
-continents
-```
+|Property                |Type                          |
+|----------------|-------------------------------|
+|primaryColor    |`string`            |
+|seondaryColor   |`string`            |
+|onClickMapContinent |`function`|
+|continents |`array`|
 
 ## License
 [ISC](https://opensource.org/licenses/ISC)
