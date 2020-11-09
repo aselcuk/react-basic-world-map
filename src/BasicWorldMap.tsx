@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState, MutableRefObject } from 'react';
 import { ContinentItem } from './ContinentItem';
-import './main.css';
 
 // CONSTANTS
 
@@ -112,6 +111,12 @@ const BasicWorldMap = ({
 
 
     useEffect(() => {
+
+        let cssPkg;
+
+        if (typeof window !== 'undefined') {
+            cssPkg = require('./main.css');
+        }
 
         onWindowResizeSetWorldMapRectangle();
 
