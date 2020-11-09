@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
     mode: 'production',
-    entry: "./src/BasicWorldMap.jsx",
+    entry: "./src/BasicWorldMap.tsx",
     output: {
         path: path.resolve(__dirname, 'lib'),
         filename: 'BasicWorldMap.js',
@@ -18,8 +18,13 @@ module.exports = {
                 }
             },
             {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
+            {
                 test: /\.css$/i,
-                use: ['style-loader', 'css-loader'],
+                use: ['style-loader', 'css-loader']
             }
         ]
     },
@@ -30,7 +35,6 @@ module.exports = {
         }
     },
     externals: {
-        // Don't bundle react or react-dom      
         react: {
             commonjs: "react",
             commonjs2: "react",

@@ -19,7 +19,6 @@ npm install react-basic-world-map --save
 <BasicWorldMap
     primaryColor="black"
     secondaryColor="gray"
-    onClickMapContinent={onClickMapLocation}
 />
 ```
 
@@ -47,7 +46,7 @@ const continents = [
 
 ## Props
 ```react
-onClickMapContinent(function(selectedItem){})
+onClickMapContinent
 
 primaryColor
 

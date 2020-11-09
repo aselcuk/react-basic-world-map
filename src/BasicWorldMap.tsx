@@ -1,9 +1,10 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState, MutableRefObject } from 'react';
+import { ContinentItem } from './ContinentItem';
 import './main.css';
 
 // CONSTANTS
 
-const DEFAULT_CONTINENTS = [
+const DEFAULT_CONTINENTS: ContinentItem[] = [
     { key: "africa", value: "Africa" },
     { key: "south_america", value: "South America" },
     { key: "europe", value: "Europe" },
@@ -19,34 +20,34 @@ const DEFAULT_SECONDARY_COLOR = "gray";
 const BasicWorldMap = ({
     primaryColor = DEFAULT_PRIMARY_COLOR,
     secondaryColor = DEFAULT_SECONDARY_COLOR,
-    onClickMapContinent = (selectedItem) => { },
+    onClickMapContinent = (selectedItem: ContinentItem) => { },
     continents = DEFAULT_CONTINENTS,
     ...props
 }) => {
 
     // REFS
 
-    const tooltipRef = useRef();
+    const tooltipRef = useRef<HTMLDivElement>();
 
-    const worldMapRef = useRef();
+    const worldMapRef = useRef<SVGSVGElement>();
 
-    const africaRef = useRef();
-    const africaBackgroundRef = useRef();
+    const africaRef = useRef<SVGGElement>();
+    const africaBackgroundRef = useRef<SVGGElement>();
 
-    const southAmericaRef = useRef();
-    const southAmericaBackgroundRef = useRef();
+    const southAmericaRef = useRef<SVGGElement>();
+    const southAmericaBackgroundRef = useRef<SVGGElement>();
 
-    const europeRef = useRef();
-    const europeBackgroundRef = useRef();
+    const europeRef = useRef<SVGGElement>();
+    const europeBackgroundRef = useRef<SVGGElement>();
 
-    const asiaRef = useRef();
-    const asiaBackgroundRef = useRef();
+    const asiaRef = useRef<SVGGElement>();
+    const asiaBackgroundRef = useRef<SVGGElement>();
 
-    const americaRef = useRef();
-    const americaBackgroundRef = useRef();
+    const americaRef = useRef<SVGGElement>();
+    const americaBackgroundRef = useRef<SVGGElement>();
 
-    const australiaRef = useRef();
-    const australiaBackgroundRef = useRef();
+    const australiaRef = useRef<SVGGElement>();
+    const australiaBackgroundRef = useRef<SVGGElement>();
 
     // STATES
 
@@ -61,7 +62,7 @@ const BasicWorldMap = ({
 
     // EVENTS
 
-    const onMouseEnter = useCallback((refEl, refEl2) => {
+    const onMouseEnter = useCallback((refEl: MutableRefObject<SVGGElement>, refEl2: MutableRefObject<SVGGElement>) => {
         refEl.current.style.fill = secondaryColor;
         refEl.current.style.cursor = "pointer";
         refEl.current.style.transition = "all .2s ease";
@@ -71,7 +72,7 @@ const BasicWorldMap = ({
         tooltipRef.current.style.display = null;
     }, [secondaryColor]);
 
-    const onMouseLeave = useCallback((refEl, refEl2) => {
+    const onMouseLeave = useCallback((refEl: MutableRefObject<SVGGElement>, refEl2: MutableRefObject<SVGGElement>) => {
         refEl.current.style.fill = primaryColor;
         refEl.current.style.cursor = null;
         refEl.current.style.transition = "all 0.5s ease";
@@ -81,7 +82,7 @@ const BasicWorldMap = ({
         tooltipRef.current.style.display = "none";
     }, [primaryColor]);
 
-    const onMouseMove = useCallback((event, currentLocation) => {
+    const onMouseMove = useCallback((event: React.MouseEvent<SVGGElement, MouseEvent>, currentLocation: string) => {
         const { pageX, pageY } = event;
 
         const { clientWidth } = tooltipRef.current;
