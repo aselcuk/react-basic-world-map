@@ -2,6 +2,10 @@
 
 Includes basic world map and continents.
 
+## Demo
+
+![demo](https://user-images.githubusercontent.com/41209531/98580338-dbbbec00-22d0-11eb-910a-5492cd52a84c.gif)
+
 ## Installation
 
 
