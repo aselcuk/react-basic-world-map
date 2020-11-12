@@ -15,37 +15,51 @@ npm install react-basic-world-map --save
 
 ## Usage
 
-```react
+```js
+import BasicWorldMap from 'react-basic-world-map';
+
 <BasicWorldMap />
 ```
 
-```react
+```jsx
+import BasicWorldMap from 'react-basic-world-map';
+
 <BasicWorldMap
     primaryColor="black"
     secondaryColor="gray"
 />
 ```
 
-```react
-const onClickMapLocation = (selected: ContinentItem) => {
-    // do something
+## Full Usage
+
+```jsx
+import React from 'react';
+import BasicWorldMap from 'react-basic-world-map';
+
+export default function App() {
+
+    const onClickMapLocation = (selectedContinent: ContinentItem) => {
+        // do something
+    }
+
+    const continents: ContinentItem[] = [
+        { key: "africa", value: "Afrika" },
+        { key: "south_america", value: "Güney Amerika" },
+        { key: "europe", value: "Avrupa" },
+        { key: "asia", value: "Asya" },
+        { key: "america", value: "Amerika" },
+        { key: "australia", value: "Okyanusya" }
+    ]
+
+    return (
+        <BasicWorldMap
+            primaryColor="black"
+            secondaryColor="gray"
+            onClickMapContinent={onClickMapLocation}
+            continents= {continents}
+        />
+    )
 }
-
-const continents = [
-    { key: "africa", value: "Afrika" },
-    { key: "south_america", value: "Güney Amerika" },
-    { key: "europe", value: "Avrupa" },
-    { key: "asia", value: "Asya" },
-    { key: "america", value: "Amerika" },
-    { key: "australia", value: "Okyanusya" }
-]
-
-<BasicWorldMap
-    primaryColor="black"
-    secondaryColor="gray"
-    onClickMapContinent={onClickMapLocation}
-    continents= {continents}
-/>
 ```
 
 ## Props
